@@ -7,6 +7,8 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import SplashPage from "./components/SplashPage";
 import ThePub from "./components/ThePub";
+import Search from "./components/Search";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +29,9 @@ function App() {
             </Route>
             <Route path="/signup">
               <SignUpFormPage />
+            </Route>
+            <Route path="/search">
+              <Search />
             </Route>
             <Route path="/thepub">
               <ThePub />

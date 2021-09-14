@@ -48,10 +48,10 @@ function Navigation({ isLoaded }){
         <div class="nav-user">
           {isLoaded && sessionLinks}
         </div>
-        <div class="search-bar">
-          <form action="/search" method="post" class="search-form">
-            <input type="search" name="search" placeholder="Search beer" class="search-input"></input>
-            <button></button>
+        <div class="search-container">
+          <form action="../search" method="post" class="search-form">
+            <input type="search" name="search" placeholder="Find a beer, brewery, or bar" class="search-input"></input>
+            <button class="search-icon"></button>
           </form>
         </div>
       </div>

@@ -21,3 +21,19 @@ p, h2, h3 { color: white }
 .review-container{
   padding: 10px;
 }
+
+.profile-picture{
+  height:50px;
+  margin: 20px;
+}
+
+.review-flex{
+  display: flex;
+}
+.review-inner{
+
+}
+
+.divider{
+  border: 2px solid white;
+}

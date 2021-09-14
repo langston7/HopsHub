@@ -20,10 +20,11 @@ function ThePub(){
       <div class="pub-inner">
         <div class="recent-activity">
           <h2 class="recent-activity-header">Recent Global Activity</h2>
+          <div class="divider"></div>
           <div class="review-container">
             {reviews.map((review) =>
-              <div>
-                <img src={review.User.profilePictureURL} alt="profile pic"></img>
+              <div class="review-flex">
+                <img src={review.User.profilePictureURL} alt="profile pic" class="profile-picture"/>
                 <div class="review-inner">
                   <h3>{review.User.username} is drinking a {review.Drink.name}</h3>
                   <p>{review.comment}</p>

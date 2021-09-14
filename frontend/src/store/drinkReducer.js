@@ -1,3 +1,5 @@
+import { csrfFetch } from "./csrf";
+
 const GET_DRINKS = 'review/getDrinks';
 const ADD_DRINK = 'review/addDrink';
 
@@ -10,13 +12,20 @@ export const addDrink = (drink) => {
 }
 
 export const fetchDrinks = () => async (dispatch) => {
-  const response = await fetch('/api/drinks');
+  const response = await csrfFetch('/api/drinks');
   const drinks = await response.json();
   dispatch(getDrinks(drinks));
-};
+}
+
+export const searchDrinks = () => async (req, dispatch) => {
+  const response = await csrfFetch('/api/drinks');
+  let drinks = await response.json();
+  drinks = drinks.filter((drink) => drink.includes(req.body.search));
+  dispatch(getDrinks(drinks));
+}
 
 export const addOneDrink = (drink) => async (dispatch) => {
-  const response = await fetch(`/api/drinks/${drink.id}`, {
+  const response = await csrfFetch(`/api/drinks/${drink.id}`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(drink)
