@@ -1,0 +1,23 @@
+p, h2, h3 { color: white }
+
+.pub-inner{
+  display:flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 1000px;
+}
+
+.recent-activity{
+  background-color: rgb(54, 54, 54);
+  width:600px;
+  margin:50px;
+}
+
+.recent-activity-header{
+  padding: 10px;
+
+}
+
+.review-container{
+  padding: 10px;
+}

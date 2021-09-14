@@ -1,0 +1,11 @@
+/* TODO Add site wide styles */
+@import url('https://fonts.googleapis.com/css2?family=Glory&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Glory&family=Urbanist&display=swap');
+
+/* font-family: 'Urbanist', sans-serif; */
+
+body {
+  background-color: #292827;
+  font-family: 'Glory', sans-serif;
+  margin: 0;
+}

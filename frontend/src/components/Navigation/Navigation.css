@@ -1,0 +1,70 @@
+.nav-container{
+  width: 100%;
+  background-color: #ffcb3d;
+  margin: 0 auto;
+}
+
+.nav-inner{
+  display:flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  align-items: center;
+  max-width: 1000px;
+  padding: 10px;
+}
+
+.nav-home{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 28px;
+}
+.nav-links{
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+.nav-link-item{
+  text-decoration: none;
+  color: black;
+  font-size:20px;
+  padding:12px;
+}
+
+.nav-user{
+  text-decoration: none;
+  color: black;
+}
+
+.profile-pic{
+  width:25px;
+}
+
+.dropdown-container{
+  position:relative;
+}
+.dropdown-content{
+  display: none;
+  position: absolute;
+  padding: 10px;
+  width: 150px;
+  background-color: #db874f;
+  text-align: center;
+}
+.dropdown-content a{
+  text-decoration: none;
+  padding: 12px;
+  font-size: 20px;
+}
+
+
+
+.dropdown-container:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dropdown-content a:hover {
+  background-color:turquoise;
+}
