@@ -1,17 +1,23 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { NavLink, useHistory } from 'react-router-dom';
+import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
+import { searchDrinks } from '../../store/drinkReducer';
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
+  const history = useHistory();
+  useEffect(() => {
+    dispatch(searchDrinks());
+  }, [dispatch])
+
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
   };
-
 
   let sessionLinks;
   if (sessionUser) {
@@ -34,6 +40,16 @@ function Navigation({ isLoaded }){
     );
   }
 
+  const [searchInput, setSearchInput] = useState('');
+  const updateSearchInput = (e) => setSearchInput(e.target.value);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    dispatch(searchDrinks(searchInput));
+    history.push(`/search`);
+  };
+
   return (
     <nav class="nav-container">
       <div class="nav-inner">
@@ -49,9 +65,15 @@ function Navigation({ isLoaded }){
           {isLoaded && sessionLinks}
         </div>
         <div class="search-container">
-          <form action="../search" method="post" class="search-form">
-            <input type="search" name="search" placeholder="Find a beer, brewery, or bar" class="search-input"></input>
-            <button class="search-icon"></button>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="search"
+              name="search"
+              value={searchInput}
+              placeholder="Find a beer, brewery, or bar"
+              class="search-input"
+              onChange={updateSearchInput} />
+            <button type="submit" class="search-icon"></button>
           </form>
         </div>
       </div>

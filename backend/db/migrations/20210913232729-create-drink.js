@@ -12,11 +12,19 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      ibv: {
+      ibu: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
+      abv: {
         allowNull: false,
         type: Sequelize.DECIMAL
       },
       variety: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      imageURL:{
         allowNull: false,
         type: Sequelize.STRING
       },

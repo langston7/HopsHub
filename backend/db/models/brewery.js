@@ -2,7 +2,8 @@
 module.exports = (sequelize, DataTypes) => {
   const Brewery = sequelize.define('Brewery', {
     name: DataTypes.STRING,
-    location: DataTypes.STRING
+    location: DataTypes.STRING,
+    imageURL: DataTypes.STRING
   }, {});
   Brewery.associate = function(models) {
     Brewery.hasMany(models.Drink, {foreignKey: 'breweryId'});

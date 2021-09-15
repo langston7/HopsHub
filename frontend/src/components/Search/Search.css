@@ -1,0 +1,16 @@
+.search-results-container{
+  margin: 0 auto;
+}
+
+.search-results-inner{
+  margin: 0 auto;
+  max-width:600px;
+  margin:50px;
+  background-color: greenyellow;
+  display:flex;
+  flex-direction: column;
+}
+
+.drink-image{
+  width:80px;
+}

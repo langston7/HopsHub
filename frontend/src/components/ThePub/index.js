@@ -36,6 +36,7 @@ function ThePub(){
         </div>
         <div class="trending-beers">
           <h2>Trending Beers</h2>
+          <div class="divider"></div>
           <div class="beers-list">
             {drinks.map((beer) =>
               <div>

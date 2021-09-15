@@ -42,6 +42,9 @@ function App() {
             <Route path="/help">
 
             </Route>
+            <Route path="/drink/:id">
+
+            </Route>
           </Switch>
         )}
       </>

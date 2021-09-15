@@ -1,7 +1,8 @@
 import { csrfFetch } from "./csrf";
 
-const GET_DRINKS = 'review/getDrinks';
-const ADD_DRINK = 'review/addDrink';
+const GET_DRINKS = 'drink/getDrinks';
+const ADD_DRINK = 'drink/addDrink';
+const SEARCH_DRINKS = 'drink/searchDrinks';
 
 export const getDrinks = (drinks) => {
   return { type: GET_DRINKS, drinks };
@@ -11,17 +12,21 @@ export const addDrink = (drink) => {
   return { type: ADD_DRINK, drink };
 }
 
+export const searchDrink = (drinks) => {
+  return { type: SEARCH_DRINKS, drinks };
+}
+
 export const fetchDrinks = () => async (dispatch) => {
   const response = await csrfFetch('/api/drinks');
   const drinks = await response.json();
   dispatch(getDrinks(drinks));
 }
 
-export const searchDrinks = () => async (req, dispatch) => {
+export const searchDrinks = (searchInput) => async (dispatch) => {
   const response = await csrfFetch('/api/drinks');
   let drinks = await response.json();
-  drinks = drinks.filter((drink) => drink.includes(req.body.search));
-  dispatch(getDrinks(drinks));
+  drinks = drinks.filter((drink) => drink.name.includes(searchInput));
+  dispatch(searchDrink(drinks));
 }
 
 export const addOneDrink = (drink) => async (dispatch) => {
@@ -40,16 +45,22 @@ export const addOneDrink = (drink) => async (dispatch) => {
 const initialState = {};
 
 const drinkReducer = (state = initialState, action) => {
-  const newEntries = {...state};
+  const drinks = {...state};
+  const search = {};
   switch (action.type) {
     case GET_DRINKS:
       action.drinks.forEach((drink) => {
-        newEntries[drink.id] = drink;
+        drinks[drink.id] = drink;
       });
-      return newEntries;
+      return drinks;
     case ADD_DRINK:
-      newEntries[action.drink.id] = action.drink;
-      return newEntries;
+      drinks[action.drink.id] = action.drink;
+      return drinks;
+    case SEARCH_DRINKS:
+      action.drinks.forEach((drink) => {
+        search[drink.id] = drink;
+      });
+      return search;
     default:
       return state;
   }
