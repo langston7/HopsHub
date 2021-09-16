@@ -8,7 +8,10 @@ import Navigation from "./components/Navigation";
 import SplashPage from "./components/SplashPage";
 import ThePub from "./components/ThePub";
 import Search from "./components/Search";
-
+import DrinkPage from "./components/DrinkPage";
+import NewDrink from "./components/NewDrink";
+import ProfilePage from "./components/ProfilePage";
+import Drinks from './components/Drinks';
 
 function App() {
   const dispatch = useDispatch();
@@ -42,8 +45,17 @@ function App() {
             <Route path="/help">
 
             </Route>
-            <Route path="/drink/:id">
-
+            <Route path="/drinks/:drinkId">
+              <DrinkPage />
+            </Route>
+            <Route path="/new_drink">
+              <NewDrink />
+            </Route>
+            <Route path="/user/:userId">
+              <ProfilePage />
+            </Route>
+            <Route path="/drinks">
+              <Drinks />
             </Route>
           </Switch>
         )}

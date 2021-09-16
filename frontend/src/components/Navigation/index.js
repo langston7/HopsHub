@@ -10,9 +10,10 @@ function Navigation({ isLoaded }){
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const history = useHistory();
-  useEffect(() => {
-    dispatch(searchDrinks());
-  }, [dispatch])
+
+  // useEffect(() => {
+  //   dispatch(searchDrinks());
+  // }, [dispatch]);
 
   const logout = (e) => {
     e.preventDefault();
@@ -46,7 +47,7 @@ function Navigation({ isLoaded }){
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    dispatch(searchDrinks(searchInput));
+    await dispatch(searchDrinks(searchInput));
     history.push(`/search`);
   };
 
@@ -58,7 +59,7 @@ function Navigation({ isLoaded }){
         </div>
         <div class="nav-links">
           <NavLink className="nav-link-item" to="/thepub">The Pub</NavLink>
-          <NavLink className="nav-link-item" to="/toprated">Top Rated</NavLink>
+          <NavLink className="nav-link-item" to="/drinks">Drinks</NavLink>
           <NavLink className="nav-link-item" to="/help">Help</NavLink>
         </div>
         <div class="nav-user">

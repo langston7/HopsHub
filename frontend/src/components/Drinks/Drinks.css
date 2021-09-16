@@ -1,0 +1,20 @@
+.all-drinks-container{
+  display: flex;
+  justify-content:center;
+}
+
+.all-drinks-inner{
+  margin: 0 auto;
+  width:600px;
+  margin:50px;
+  background-color: rgb(214, 214, 214);
+  display:flex;
+  flex-direction: column;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

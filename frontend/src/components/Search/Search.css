@@ -1,16 +1,13 @@
 .search-results-container{
-  margin: 0 auto;
+  display: flex;
+  justify-content:center;
 }
 
 .search-results-inner{
   margin: 0 auto;
-  max-width:600px;
+  width:600px;
   margin:50px;
   background-color: greenyellow;
   display:flex;
   flex-direction: column;
-}
-
-.drink-image{
-  width:80px;
 }

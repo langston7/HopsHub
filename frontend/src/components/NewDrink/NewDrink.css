@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Glory&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Glory&family=Urbanist&display=swap');
+
+.new-drink-container{
+  display:flex;
+  justify-content: center;
+}
+
+.new-drink-inner{
+  margin: 0 auto;
+  max-width:600px;
+  margin:50px;
+  background-color: rgb(77, 77, 77);
+  display:flex;
+
+}
+
+#new-drink-form{
+  display:flex;
+  flex-direction: column;
+  padding: 20px;
+  color: white;
+}
+
+#new-drink-form input{
+  border-radius: 5px;
+  color:white;
+  background-color: rgb(77, 77, 77);
+  height:30px;
+  font-family: 'Glory', sans-serif;
+  margin:10px;
+}
+
+.form-label{
+
+}
+
+.form-number{
+  width: 80px;
+}
+
+.add-drink-button{
+  height: 35px;
+  background-color: whitesmoke;
+  font-family: 'Glory', sans-serif;
+  border-radius: 5px;
+  font-size: 20px;
+  margin-top: 10px;
+}
