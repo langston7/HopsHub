@@ -1,3 +1,5 @@
+import { csrfFetch } from "./csrf";
+
 const GET_REVIEWS = 'review/getReviews';
 const ADD_REVIEW = 'review/addReview';
 
@@ -10,13 +12,13 @@ export const addReview = (review) => {
 }
 
 export const fetchReviews = () => async (dispatch) => {
-  const response = await fetch('/api/reviews');
+  const response = await csrfFetch('/api/reviews');
   const reviews = await response.json();
   dispatch(getReviews(reviews));
 };
 
 export const addOneReview = (review) => async (dispatch) => {
-  const response = await fetch(`/api/reviews/${review.id}`, {
+  const response = await csrfFetch(`/api/reviews`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(review)

@@ -26,10 +26,10 @@ function ThePub(){
               <div class="review-flex">
                 <img src={review.User.profilePictureURL} alt="profile pic" class="profile-picture"/>
                 <div class="review-inner">
-                  <h3>{review.User.username} is drinking a {review.Drink.name}</h3>
+                  <h3>{review.User.username} is drinking a {review.Drink.name} by {review.Drink.Brewery.name}</h3>
                   <p>{review.comment}</p>
-                  <img alt="upload"></img>
                 </div>
+                <img src={review.Drink.Brewery.imageURL} alt="brewery" class="profile-picture"/>
               </div>
             )}
           </div>

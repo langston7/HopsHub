@@ -1,0 +1,36 @@
+.login-form-container{
+  border: 3px solid wheat;
+  border-radius: 15px;
+  height: 400px;
+  width: 400px;
+  padding: 20px;
+}
+
+.login-form-container h3{
+  color:black;
+}
+
+#login-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+
+}
+.login-label{
+  padding:20px;
+  display:flex;
+  flex-direction: column;
+}
+.login-input{
+
+}
+
+.login-button{
+  margin: 0 auto;
+  height: 50px;
+  width: 100px;
+  background-color: goldenrod;
+  border-radius: 50px;
+  border: none;
+}

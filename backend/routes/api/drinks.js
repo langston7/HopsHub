@@ -8,8 +8,10 @@ router.get('/', asyncHandler(async (req, res) => {
   res.json(drinks);
 }))
 
-// router.post('/drinkid', asyncHandler(async (req, res) => {
-//   await Drink.create
-// }))
+
+router.post('/drinkid', asyncHandler(async (req, res) => {
+  const { beerName, breweryId, abv, ibu, variety } = req.body;
+  await Drink.create({ beerName, breweryId, abv, ibu, variety });
+ }))
 
 module.exports = router;

@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from "react-router-dom";
 import { fetchDrinks } from "../../store/drinkReducer";
+import ReviewFormModal from "../ReviewFormModal";
 import "./Drinks.css"
 
 function Drinks(){
@@ -19,20 +20,17 @@ function Drinks(){
       {drinks.map((drink) =>
         <div class="drink-container">
           <div class="drink-inner">
-            <img src={drink?.imageURL} alt="drink" className="drink-image"></img>
+            <div class="drink-image-container">
+              <img src={drink?.imageURL} alt="drink" class="drink-image"></img>
+            </div>
             <div class="drink-info-left">
-              <div class="drink-info-name">{drink?.name}</div>
+              <NavLink to={`/drinks/${drink.id}`} class="drink-info-name">{drink?.name}</NavLink>
               <div class="drink-info-brewery">{drink?.Brewery.name}</div>
               <div class="drink-info-variety">{drink?.variety}</div>
             </div>
             <div class="review-button-container">
-              <button id="add-review-button">Open modal</button>
               <div id="add-review-modal">
-                <form id="review-form">
-                  <span class="close">&times;</span>
-                  <label>basdf</label>
-                  <input type="text"></input>
-                </form>
+                <ReviewFormModal />
               </div>
             </div>
           </div>

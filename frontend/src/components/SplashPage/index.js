@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import * as sessionActions from '../../store/session';
-import { useDispatch, useSelector } from 'react-redux';
+import LoginFormModal from '../LoginFormModal/index.js';
 import "./SplashPage.css";
 
 function SplashPage() {
-  const dispatch = useDispatch();
 
 
   return (
     <div class="splash-container">
       <div class="header-container background-tint">
         <nav class="splash-nav">
-          <NavLink to='/login' className="user-button">LOG IN</NavLink>
+          <LoginFormModal/>
           <NavLink to='/signup' className="user-button">CREATE AN ACCOUNT</NavLink>
         </nav>
         <div class="subheader">

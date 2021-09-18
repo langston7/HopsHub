@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,10 +11,6 @@ function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
   const history = useHistory();
 
-  // useEffect(() => {
-  //   dispatch(searchDrinks());
-  // }, [dispatch]);
-
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
@@ -26,7 +22,7 @@ function Navigation({ isLoaded }){
       <div class="dropdown-container">
         <img class="profile-pic" src="https://i1.wp.com/untappd.akamaized.net/site/assets/images/default_avatar_v3_gravatar.jpg?ssl=1" alt="profile pic"></img>
         <div class="dropdown-content">
-          <a href="/">Profile</a>
+          <a href={`/user/${sessionUser.id}`}>Profile</a>
           <a href="/">Lists</a>
           <a href="/" onClick={logout}>Logout</a>
         </div>
@@ -66,7 +62,7 @@ function Navigation({ isLoaded }){
           {isLoaded && sessionLinks}
         </div>
         <div class="search-container">
-          <form onSubmit={handleSubmit}>
+          <form class="search-form" onSubmit={handleSubmit}>
             <input
               type="search"
               name="search"

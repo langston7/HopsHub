@@ -1,21 +1,23 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addOneDrink } from '../../store/drinkReducer';
 
 import "./NewDrink.css"
 
 function NewDrink(){
+  const sessionUser = useSelector(state => state.session.user);
+  const userId = sessionUser.id;
 
   const dispatch = useDispatch();
 
   const [beerName, setBeerName] = useState();
-  const [breweryName, setBreweryName] = useState();
+  const [breweryId, setBreweryId] = useState();
   const [abv, setAbv] = useState();
   const [ibu, setIbu] = useState();
   const [variety, setVariety] = useState();
 
   const updateBeerName = (e) => setBeerName(e.target.value)
-  const updateBreweryName = (e) => setBreweryName(e.target.value)
+  const updateBreweryName = (e) => setBreweryId(e.target.value)
   const updateAbv = (e) => setAbv(e.target.value)
   const updateIbu = (e) => setIbu(e.target.value)
   const updateVariety = (e) => setVariety(e.target.value)
@@ -27,10 +29,11 @@ function NewDrink(){
 
     const payload = {
       beerName,
-      breweryName,
+      breweryId,
       abv,
       ibu,
       variety,
+      userId,
     }
     await dispatch(addOneDrink(payload));
   }

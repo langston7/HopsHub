@@ -2,23 +2,33 @@
   display: flex;
   justify-content:center;
 }
+
 .drink-inner{
   margin: 0 auto;
   min-width:600px;
-  margin:50px;
-  background-color: rgb(255, 255, 255);
+  margin-left:50px;
+  margin-right: 50px;
+  margin-bottom: 20px;
   display:flex;
-  justify-content: left;
+
   align-items: center;
 }
 .drink-info-left{
   color:rgb(0, 0, 0);
+  width: 400px;
 }
 
 .drink-info-name{
   margin: 20px;
   font-size: 30px;
+  text-decoration: none;
+  color: black;
 }
+
+.drink-info-name:hover{
+  color: royalblue;
+}
+
 .drink-info-brewery{
   margin: 20px;
 }
@@ -27,11 +37,16 @@
   margin: 20px;
 }
 
-
-.drink-image{
+.drink-image-container{
   margin: 10px;
   width:80px;
   height:160px;
+
+}
+
+.drink-image{
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .drink-image-container{
