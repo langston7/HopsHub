@@ -30,7 +30,7 @@ function Drinks(){
             </div>
             <div class="review-button-container">
               <div id="add-review-modal">
-                <ReviewFormModal />
+                <ReviewFormModal drinkId={drink?.id}/>
               </div>
             </div>
           </div>

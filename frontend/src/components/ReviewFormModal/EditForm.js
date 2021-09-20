@@ -1,31 +1,25 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory, Redirect } from "react-router-dom";
-import { addOneReview } from "../../store/reviewReducer";
+import { useDispatch} from "react-redux";
+import { useHistory } from "react-router-dom";
+import { editOneReview } from "../../store/reviewReducer";
 import "./ReviewForm.css"
 
-function ReviewForm({drinkId}) {
-  const sessionUser = useSelector(state => state.session.user);
-
+function EditForm({reviewId, oldComment}) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [comment, setComment] = useState();
   const [errors, setErrors] = useState([]);
-  const userId = sessionUser.id;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
 
-    console.log("HELLO");
-
     const payload = {
+      reviewId,
       comment,
-      userId,
-      drinkId,
     }
 
-    await dispatch(addOneReview(payload))
+    await dispatch(editOneReview(payload));
     history.push('/thepub');
   };
 
@@ -41,7 +35,7 @@ function ReviewForm({drinkId}) {
         <input
           class="review-input"
           type="text"
-          placeholder="What did you think?"
+          placeholder={oldComment}
           value={comment}
           onChange={(e) => setComment(e.target.value)}
           required
@@ -52,4 +46,4 @@ function ReviewForm({drinkId}) {
   );
 }
 
-export default ReviewForm;
+export default EditForm;

@@ -9,6 +9,7 @@ module.exports = {
         email: 'demo@user.io',
         username: 'Demo-lition',
         hashedPassword: bcrypt.hashSync('password'),
+        profilePictureURL: 'https://cdn.discordapp.com/attachments/841133997501317161/889320398263582720/default_avatar_v3_gravatar.png'
       },
     ], {});
   },

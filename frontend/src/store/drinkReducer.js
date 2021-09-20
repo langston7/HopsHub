@@ -30,7 +30,7 @@ export const searchDrinks = (searchInput) => async (dispatch) => {
 }
 
 export const addOneDrink = (drink) => async (dispatch) => {
-  const response = await csrfFetch(`/api/drinks/${drink.id}`, {
+  const response = await csrfFetch(`/api/drinks`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(drink)
@@ -38,7 +38,7 @@ export const addOneDrink = (drink) => async (dispatch) => {
 
   if(response.ok) {
     const newDrink = await response.json();
-    dispatch(addOneDrink(newDrink));
+    dispatch(addDrink(newDrink));
   }
 }
 

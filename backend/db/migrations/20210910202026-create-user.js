@@ -25,7 +25,7 @@ module.exports = {
       profilePictureURL: {
         type: Sequelize.STRING,
         allowNull: false,
-        defaultValue: "https://i1.wp.com/untappd.akamaized.net/site/assets/images/default_avatar_v3_gravatar.jpg?ssl=1"
+        defaultValue: "https://cdn.discordapp.com/attachments/841133997501317161/889320398263582720/default_avatar_v3_gravatar.png"
       },
       createdAt: {
         allowNull: false,

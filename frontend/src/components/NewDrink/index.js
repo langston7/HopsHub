@@ -1,17 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addOneDrink } from '../../store/drinkReducer';
-
+import { fetchBreweries } from '../../store/breweryReducer';
 import "./NewDrink.css"
+import { useHistory } from 'react-router';
 
 function NewDrink(){
   const sessionUser = useSelector(state => state.session.user);
   const userId = sessionUser.id;
-
   const dispatch = useDispatch();
+  const history = useHistory();
+  const breweries = useSelector(state => Object.values(state.brewery));
 
   const [beerName, setBeerName] = useState();
-  const [breweryId, setBreweryId] = useState();
+  const [breweryId, setBreweryId] = useState('1');
   const [abv, setAbv] = useState();
   const [ibu, setIbu] = useState();
   const [variety, setVariety] = useState();
@@ -22,6 +24,9 @@ function NewDrink(){
   const updateIbu = (e) => setIbu(e.target.value)
   const updateVariety = (e) => setVariety(e.target.value)
 
+  useEffect(() => {
+    dispatch(fetchBreweries());
+  }, [dispatch])
 
 
   const handleSubmit = async (e) => {
@@ -36,6 +41,7 @@ function NewDrink(){
       userId,
     }
     await dispatch(addOneDrink(payload));
+    history.push('/drinks');
   }
 
 
@@ -46,7 +52,11 @@ function NewDrink(){
           <label for="beerName" class="form-label">BEER NAME</label>
           <input name="beerName" type="text" required onChange={updateBeerName}></input>
           <label for="breweryName" class="form-label">BREWERY NAME</label>
-          <input name="breweryName" type="text" required onChange={updateBreweryName}></input>
+          <select name="breweryName" required onChange={updateBreweryName}>
+            {breweries.map((brewery) =>
+              <option value={brewery.id}>{brewery.name}</option>
+            )}
+          </select>
           <div>
             <label for="abv" class="form-label">ABV</label>
             <input name="abv" type="number" class="form-number" required onChange={updateAbv}></input>

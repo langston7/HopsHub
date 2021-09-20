@@ -26,7 +26,8 @@ module.exports = {
       },
       imageURL:{
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        defaultValue: "https://cdn.discordapp.com/attachments/841133997501317161/887109068970418186/1200px-Wildblood_hops_detail.png"
       },
       breweryId: {
         allowNull: false,

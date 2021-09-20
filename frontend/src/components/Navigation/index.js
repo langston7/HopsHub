@@ -1,26 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { searchDrinks } from '../../store/drinkReducer';
+import { fetchUsers } from '../../store/userReducer';
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
+  const users = useSelector((state) => Object.values(state.user));
+  const user = users.filter((user) => user.id === sessionUser.id)
   const history = useHistory();
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch])
 
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    history.push("/");
   };
 
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
       <div class="dropdown-container">
-        <img class="profile-pic" src="https://i1.wp.com/untappd.akamaized.net/site/assets/images/default_avatar_v3_gravatar.jpg?ssl=1" alt="profile pic"></img>
+        <img class="profile-pic" src={user[0]?.profilePictureURL} alt="profile pic"></img>
         <div class="dropdown-content">
           <a href={`/user/${sessionUser.id}`}>Profile</a>
           <a href="/">Lists</a>

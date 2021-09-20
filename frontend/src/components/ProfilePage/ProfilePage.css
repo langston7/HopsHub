@@ -1,0 +1,57 @@
+.profile-container{
+  margin: 0 auto;
+}
+
+.profile-banner{
+  display:flex;
+  background-image: url("https://www.wallpaperbetter.com/wallpaper/971/510/380/draft-beer-2K-wallpaper.jpg");
+  background-position-y: -300px;
+  background-size: 100%;
+  background-color: rgba(71, 71, 71, 0.774); /* Tint color */
+  background-blend-mode: multiply;
+  height:300px;
+  width:1000px;
+  margin: 0 auto;
+  margin-top: 3px;
+}
+
+.profile-banner-inner{
+  display:flex;
+  align-self: flex-end;
+  margin: 20px;
+
+}
+
+.profile-user-stats{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  justify-content: center;
+}
+
+.profile-user-stats p{
+  margin: 6px;
+}
+
+.xname{
+  font-size: 29px;
+}
+
+.alter-review-button-container{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: 15px;
+}
+
+.alter-review-button{
+  height: 40px;
+  background-color:burlywood;
+  border-radius: 5px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.alter-review-button:hover{
+  cursor: pointer;
+}

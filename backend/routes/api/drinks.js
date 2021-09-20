@@ -9,9 +9,14 @@ router.get('/', asyncHandler(async (req, res) => {
 }))
 
 
-router.post('/drinkid', asyncHandler(async (req, res) => {
-  const { beerName, breweryId, abv, ibu, variety } = req.body;
-  await Drink.create({ beerName, breweryId, abv, ibu, variety });
+router.post('/', asyncHandler(async (req, res) => {
+  const { beerName, breweryId, abv, ibu, variety, userId } = req.body;
+  const name = beerName;
+  const imageURL = "https://oldschool.runescape.wiki/images/thumb/5/5a/Beer_detail.png/800px-Beer_detail.png?b3760";
+  const newDrink = await Drink.create({ name, breweryId, abv, ibu, variety, userId, imageURL });
+  return res.json({
+    newDrink,
+  });
  }))
 
 module.exports = router;
